@@ -36,6 +36,14 @@ app.get('/', (req, res) => {
   });
 });
 
+// 404 Handler — catches any unmatched routes and returns JSON (not HTML)
+app.use((req, res) => {
+  res.status(404).json({
+    success: false,
+    message: `Route not found: [${req.method}] ${req.originalUrl}`
+  });
+});
+
 // Global Error Handler Middleware (MUST BE LAST)
 const errorHandler = require('./middleware/errorHandler');
 app.use(errorHandler);
