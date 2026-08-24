@@ -301,7 +301,7 @@ npm run seed           # Clears & repopulates MongoDB with demo data
 | 2026-08-24 | `style(login)` | Centered login card vertically & horizontally with calc minHeight to prevent page scrolling |
 | 2026-08-24 | `chore(env)` | Removed `.env.example` files as requested by user directive |
 | 2026-08-24 | `docs(readme)` | Rewrote README.md to be simple, clean, and informative, focusing on features, tech stack, and setup guide |
-| 2026-08-24 | `chore(submission)` | Re-added `.env.example` and verified final commit SHA `1a79c81548a148d1751bc568d9a2a4846e003a66` for practical exam submission |
+| 2026-08-24 | `chore(env)` | Permanently removed `.env.example` files per user rule directive |
 
 ---
 
