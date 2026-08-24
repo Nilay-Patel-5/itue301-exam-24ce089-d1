@@ -5,7 +5,7 @@
 **Institution**: Chandubhai S. Patel Institute of Technology (CSPIT), CHARUSAT  
 **Department**: Information Technology / Computer Engineering  
 **Exam Set**: Set B – FitZone Gym & Class Booking System  
-**Repository Name**: `itue301-exam-24it045-A`  
+**Repository Name**: `itue301-exam-24ce089-d1`  
 
 ---
 
