@@ -31,9 +31,7 @@ const Navigation = () => {
         </Link>
 
         <ul className="nav-links">
-          {!token ? (
-            <NavLink to="/" icon={<LogIn size={18} style={iconStyle} />} label="Member Login" pathname={p} />
-          ) : (
+          {token && (
             <>
               {/* ── MEMBER links ──────────────────────────── */}
               {role === 'member' && (
