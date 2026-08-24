@@ -7,6 +7,9 @@ yarn-error.log*
 # Environment variables (sensitive - never commit)
 .env
 
+# Project internal knowledge base (agent only)
+brain.md
+
 # Build output
 dist/
 build/
