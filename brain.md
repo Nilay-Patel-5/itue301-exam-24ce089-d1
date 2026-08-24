@@ -298,6 +298,7 @@ npm run seed           # Clears & repopulates MongoDB with demo data
 | 2026-08-24 | `fix(AdminPanel)` | Unified data fetching with `Promise.all` so Trainers list and stats stay loaded across all tabs |
 | 2026-08-24 | `docs(audit)` | Conducted full PDF requirements audit; added `.env.example` templates in root & backend for exam compliance |
 | 2026-08-24 | `style(nav)` | Removed redundant "Member Login" nav link for unauthenticated state in Navigation component |
+| 2026-08-24 | `style(login)` | Centered login card vertically & horizontally with calc minHeight to prevent page scrolling |
 
 ---
 

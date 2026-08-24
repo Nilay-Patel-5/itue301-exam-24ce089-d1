@@ -47,8 +47,14 @@ const LoginPage = () => {
   };
 
   return (
-    <div style={{ maxWidth: '450px', margin: '3rem auto' }}>
-      <div className="glass-card" style={{ padding: '2.5rem' }}>
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      minHeight: 'calc(80vh - 80px)',
+      padding: '1rem'
+    }}>
+      <div className="glass-card" style={{ width: '100%', maxWidth: '440px', padding: '2.25rem' }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <div className="logo-icon" style={{ display: 'inline-flex', marginBottom: '1rem' }}>
             <Dumbbell size={36} />
