@@ -300,6 +300,7 @@ npm run seed           # Clears & repopulates MongoDB with demo data
 | 2026-08-24 | `style(nav)` | Removed redundant "Member Login" nav link for unauthenticated state in Navigation component |
 | 2026-08-24 | `style(login)` | Centered login card vertically & horizontally with calc minHeight to prevent page scrolling |
 | 2026-08-24 | `chore(env)` | Removed `.env.example` files as requested by user directive |
+| 2026-08-24 | `docs(readme)` | Rewrote README.md to be simple, clean, and informative, focusing on features, tech stack, and setup guide |
 
 ---
 
