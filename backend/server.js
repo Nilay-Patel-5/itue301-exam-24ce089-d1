@@ -14,8 +14,11 @@ const app = express();
 // Body Parser Middleware
 app.use(express.json());
 
-// CORS Middleware
-app.use(cors());
+// CORS Middleware — explicitly allow frontend dev server
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
+  credentials: true,
+}));
 
 // Global Request Logger Middleware
 const requestLogger = require('./middleware/requestLogger');

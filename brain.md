@@ -288,6 +288,8 @@ npm run seed           # Clears & repopulates MongoDB with demo data
 | 2026-08-24 | `docs` | Professional README.md with API table, schema reference, setup guide |
 | 2026-08-24 | `docs(brain)` | Agent instructions block added to brain.md for context-first workflow |
 | 2026-08-24 | `fix(LoginPage)` | Removed Quick Demo Auto-Fill Credentials buttons and `handleQuickLogin` function |
+| 2026-08-24 | `fix(server)` | Explicitly configured CORS to allow `localhost:3000` — fixes login from frontend |
+| 2026-08-24 | `fix(vite)` | Added `secure:false` and `rewrite` to Vite proxy config to ensure `/api` routes forward correctly |
 
 ---
 
