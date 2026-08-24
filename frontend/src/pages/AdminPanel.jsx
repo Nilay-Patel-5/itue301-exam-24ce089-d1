@@ -38,49 +38,37 @@ const AdminPanel = () => {
 
   const authHeader = { Authorization: `Bearer ${token}` };
 
-  const fetchMembers = async () => {
-    setLoading(true); setError(null);
+  const fetchAllData = async () => {
+    setLoading(true);
+    setError(null);
     try {
-      const res = await fetch('/api/v1/admin/members', { headers: authHeader });
-      const result = await res.json();
-      if (!res.ok) throw new Error(result.message);
-      setMembers(result.data || []);
-    } catch (e) { setError(e.message); }
-    finally { setLoading(false); }
-  };
+      const [memRes, bookRes, trainRes] = await Promise.all([
+        fetch('/api/v1/admin/members', { headers: authHeader }),
+        fetch('/api/v1/admin/bookings', { headers: authHeader }),
+        fetch('/api/v1/trainers')
+      ]);
 
-  const fetchBookings = async () => {
-    setLoading(true); setError(null);
-    try {
-      const res = await fetch('/api/v1/admin/bookings', { headers: authHeader });
-      const result = await res.json();
-      if (!res.ok) throw new Error(result.message);
-      setBookings(result.data || []);
-    } catch (e) { setError(e.message); }
-    finally { setLoading(false); }
-  };
+      const memData = await memRes.json();
+      const bookData = await bookRes.json();
+      const trainData = await trainRes.json();
 
-  const fetchTrainers = async () => {
-    setLoading(true); setError(null);
-    try {
-      const res = await fetch('/api/v1/trainers');
-      const result = await res.json();
-      if (!res.ok) throw new Error(result.message);
-      setTrainers(result.data || []);
-    } catch (e) { setError(e.message); }
-    finally { setLoading(false); }
+      if (!memRes.ok) throw new Error(memData.message);
+      if (!bookRes.ok) throw new Error(bookData.message);
+      if (!trainRes.ok) throw new Error(trainData.message);
+
+      setMembers(memData.data || []);
+      setBookings(bookData.data || []);
+      setTrainers(trainData.data || []);
+    } catch (e) {
+      setError(e.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
-    if (activeTab === 'All Members') fetchMembers();
-    else if (activeTab === 'All Bookings') fetchBookings();
-    else if (activeTab === 'Manage Trainers') fetchTrainers();
-    else {
-      fetchMembers();
-      fetchBookings();
-      fetchTrainers();
-    }
-  }, [activeTab]);
+    fetchAllData();
+  }, [token]);
 
   const handleToggleAvailability = async (trainerId) => {
     try {

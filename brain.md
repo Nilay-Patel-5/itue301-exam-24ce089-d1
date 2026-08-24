@@ -295,6 +295,7 @@ npm run seed           # Clears & repopulates MongoDB with demo data
 | 2026-08-24 | `style(ui)` | Added Membership Tier Badges in member headers (Classes & My Bookings) and Admin panel |
 | 2026-08-24 | `refactor(schema)` | Set `membershipType` to default `null` — applies strictly to `member` role (omitted for Trainers & Admin) |
 | 2026-08-24 | `fix(admin)` | Filtered `getAllMembers` API and AdminPanel UI to display only gym members (excluding Admin & Trainer accounts) |
+| 2026-08-24 | `fix(AdminPanel)` | Unified data fetching with `Promise.all` so Trainers list and stats stay loaded across all tabs |
 
 ---
 
