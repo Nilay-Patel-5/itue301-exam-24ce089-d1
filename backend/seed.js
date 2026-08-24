@@ -101,26 +101,34 @@ const seedData = async () => {
     ]);
     console.log(`Created ${trainerAccounts.length} trainer login accounts`);
 
-    // ── Step 4: Sample Bookings ───────────────────────────────────────────────
+    // ── Step 4: Rich Sample Bookings ─────────────────────────────────────────
+    const today = new Date().toISOString().split('T')[0];
+    const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+    const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+    const twoDaysAgo = new Date(Date.now() - 2 * 86400000).toISOString().split('T')[0];
+    const threeDaysAgo = new Date(Date.now() - 3 * 86400000).toISOString().split('T')[0];
+
     await ClassBooking.create([
-      {
-        memberId: members[0]._id,
-        trainerId: trainers[0]._id,
-        className: 'Morning HIIT Blast',
-        date: new Date().toISOString().split('T')[0],
-        timeSlot: '07:00 AM - 08:00 AM',
-        status: 'booked'
-      },
-      {
-        memberId: members[1]._id,
-        trainerId: trainers[1]._id,
-        className: 'Yoga Flow Session',
-        date: new Date().toISOString().split('T')[0],
-        timeSlot: '09:00 AM - 10:00 AM',
-        status: 'attended'
-      }
+      // John Doe's bookings
+      { memberId: members[0]._id, trainerId: trainers[0]._id, className: 'Morning HIIT Blast',       date: today,        timeSlot: '07:00 AM - 08:00 AM', status: 'booked'    },
+      { memberId: members[0]._id, trainerId: trainers[1]._id, className: 'Yoga Flow Session',         date: yesterday,    timeSlot: '09:00 AM - 10:00 AM', status: 'attended'  },
+      { memberId: members[0]._id, trainerId: trainers[3]._id, className: 'Endurance Run Circuit',     date: twoDaysAgo,   timeSlot: '06:30 PM - 07:30 PM', status: 'attended'  },
+      { memberId: members[0]._id, trainerId: trainers[2]._id, className: 'Power Lifting Fundamentals',date: threeDaysAgo, timeSlot: '05:00 PM - 06:00 PM', status: 'cancelled' },
+
+      // Jane Smith's bookings
+      { memberId: members[1]._id, trainerId: trainers[1]._id, className: 'Morning Pilates Core',      date: today,        timeSlot: '09:00 AM - 10:00 AM', status: 'booked'    },
+      { memberId: members[1]._id, trainerId: trainers[0]._id, className: 'CrossFit Strength',         date: today,        timeSlot: '05:00 PM - 06:00 PM', status: 'booked'    },
+      { memberId: members[1]._id, trainerId: trainers[3]._id, className: 'Cardio Burn Session',       date: yesterday,    timeSlot: '07:00 AM - 08:00 AM', status: 'attended'  },
+      { memberId: members[1]._id, trainerId: trainers[2]._id, className: 'Heavy Deadlift Training',   date: twoDaysAgo,   timeSlot: '05:00 PM - 06:00 PM', status: 'attended'  },
+      { memberId: members[1]._id, trainerId: trainers[1]._id, className: 'Flexibility & Balance',     date: threeDaysAgo, timeSlot: '09:00 AM - 10:00 AM', status: 'cancelled' },
+
+      // Tomorrow's upcoming sessions
+      { memberId: members[0]._id, trainerId: trainers[0]._id, className: 'Advanced HIIT Circuit',    date: tomorrow,     timeSlot: '07:00 AM - 08:00 AM', status: 'booked'    },
+      { memberId: members[1]._id, trainerId: trainers[3]._id, className: 'Interval Cardio Training', date: tomorrow,     timeSlot: '06:30 PM - 07:30 PM', status: 'booked'    },
+      { memberId: members[0]._id, trainerId: trainers[1]._id, className: 'Restorative Yoga',         date: tomorrow,     timeSlot: '09:00 AM - 10:00 AM', status: 'booked'    },
     ]);
-    console.log('Created 2 sample bookings');
+    console.log('Created 12 sample bookings');
+
 
     console.log('\n✅ Seeding completed successfully!\n');
     console.log('─────────────────────────────────────────');
