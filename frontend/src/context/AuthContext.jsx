@@ -1,11 +1,11 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState } from 'react';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [member, setMember] = useState(() => {
-    const savedMember = localStorage.getItem('fitzone_member');
-    return savedMember ? JSON.parse(savedMember) : null;
+    const saved = localStorage.getItem('fitzone_member');
+    return saved ? JSON.parse(saved) : null;
   });
 
   const [token, setToken] = useState(() => {

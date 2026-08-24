@@ -33,7 +33,12 @@ const LoginPage = () => {
       }
 
       login(data.member, data.token);
-      navigate('/classes');
+      const roleHome = {
+        member:  '/classes',
+        trainer: '/trainer/dashboard',
+        admin:   '/admin',
+      };
+      navigate(roleHome[data.member.role] || '/classes');
     } catch (err) {
       setError(err.message);
     } finally {

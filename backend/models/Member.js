@@ -25,7 +25,7 @@ const memberSchema = new mongoose.Schema(
     role: {
       type: String,
       enum: {
-        values: ['member', 'admin'],
+        values: ['member', 'trainer', 'admin'],
         message: '{VALUE} is not a valid user role'
       },
       default: 'member'
@@ -37,6 +37,12 @@ const memberSchema = new mongoose.Schema(
         message: '{VALUE} is not a valid membership type'
       },
       default: 'basic'
+    },
+    // Only populated for users with role='trainer' — links login account to Trainer profile
+    trainerProfileId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Trainer',
+      default: null
     }
   },
   {
