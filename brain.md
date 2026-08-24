@@ -299,6 +299,7 @@ npm run seed           # Clears & repopulates MongoDB with demo data
 | 2026-08-24 | `docs(audit)` | Conducted full PDF requirements audit; added `.env.example` templates in root & backend for exam compliance |
 | 2026-08-24 | `style(nav)` | Removed redundant "Member Login" nav link for unauthenticated state in Navigation component |
 | 2026-08-24 | `style(login)` | Centered login card vertically & horizontally with calc minHeight to prevent page scrolling |
+| 2026-08-24 | `chore(env)` | Removed `.env.example` files as requested by user directive |
 
 ---
 
