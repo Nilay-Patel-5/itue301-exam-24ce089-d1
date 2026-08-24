@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
-import { Dumbbell, Lock, Mail, ArrowRight, UserCheck } from 'lucide-react';
+import { Dumbbell, Lock, Mail, ArrowRight } from 'lucide-react';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -39,11 +39,6 @@ const LoginPage = () => {
     } finally {
       setLoading(false);
     }
-  };
-
-  const handleQuickLogin = (demoEmail, demoPass) => {
-    setEmail(demoEmail);
-    setPassword(demoPass);
   };
 
   return (
@@ -98,47 +93,10 @@ const LoginPage = () => {
             {loading ? 'Authenticating...' : 'Sign In'} <ArrowRight size={18} style={{ display: 'inline', verticalAlign: 'text-bottom', marginLeft: '6px' }} />
           </button>
         </form>
-
-        <div style={{ marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid var(--card-border)' }}>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.75rem', textAlign: 'center' }}>
-            Quick Demo Auto-Fill Credentials:
-          </p>
-          <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center' }}>
-            <button
-              type="button"
-              onClick={() => handleQuickLogin('john@fitzone.com', '123456')}
-              style={{
-                background: 'rgba(99, 102, 241, 0.15)',
-                border: '1px solid rgba(99, 102, 241, 0.3)',
-                color: '#a5b4fc',
-                padding: '0.4rem 0.75rem',
-                borderRadius: '8px',
-                fontSize: '0.8rem',
-                cursor: 'pointer'
-              }}
-            >
-              <UserCheck size={14} style={{ display: 'inline', marginRight: '4px' }} /> John Doe (Member)
-            </button>
-            <button
-              type="button"
-              onClick={() => handleQuickLogin('admin@fitzone.com', '123456')}
-              style={{
-                background: 'rgba(20, 184, 166, 0.15)',
-                border: '1px solid rgba(20, 184, 166, 0.3)',
-                color: '#5eead4',
-                padding: '0.4rem 0.75rem',
-                borderRadius: '8px',
-                fontSize: '0.8rem',
-                cursor: 'pointer'
-              }}
-            >
-              <UserCheck size={14} style={{ display: 'inline', marginRight: '4px' }} /> Admin User
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   );
 };
 
 export default LoginPage;
+

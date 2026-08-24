@@ -286,7 +286,8 @@ npm run seed           # Clears & repopulates MongoDB with demo data
 | 2026-08-24 | `chore` | Git repository initialized, `.gitignore` created, connected to GitHub remote |
 | 2026-08-24 | `chore` | Initial push to [github.com/Nilay-Patel-5/itue301-exam-24ce089-d1](https://github.com/Nilay-Patel-5/itue301-exam-24ce089-d1) |
 | 2026-08-24 | `docs` | Professional README.md with API table, schema reference, setup guide |
-| 2026-08-24 | `docs` | brain.md created as living project knowledge base |
+| 2026-08-24 | `docs(brain)` | Agent instructions block added to brain.md for context-first workflow |
+| 2026-08-24 | `fix(LoginPage)` | Removed Quick Demo Auto-Fill Credentials buttons and `handleQuickLogin` function |
 
 ---
 
