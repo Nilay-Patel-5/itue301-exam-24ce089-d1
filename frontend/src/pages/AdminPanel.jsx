@@ -191,7 +191,7 @@ const AdminPanel = () => {
       {/* ── All Members Tab ── */}
       {!loading && activeTab === 'All Members' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-          {members.map((m, i) => (
+          {members.filter(m => m.role === 'member').map((m, i) => (
             <div key={m._id} className="glass-card" style={{ padding: '1.25rem 1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(99,102,241,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: 'var(--primary)', fontSize: '1.1rem' }}>
@@ -200,7 +200,6 @@ const AdminPanel = () => {
                 <div>
                   <div style={{ fontWeight: 700, color: '#fff', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                     {m.name}
-                    {m.role === 'admin' && <Crown size={14} style={{ color: '#fbbf24' }} />}
                   </div>
                   <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{m.email}</div>
                 </div>
@@ -209,7 +208,6 @@ const AdminPanel = () => {
                 {m.membershipType && (
                   <Badge label={m.membershipType} style={membershipColors[m.membershipType] || membershipColors.basic} />
                 )}
-                <Badge label={m.role} style={{ background: m.role === 'admin' ? 'rgba(251,191,36,0.15)' : m.role === 'trainer' ? 'rgba(20,184,166,0.15)' : 'rgba(99,102,241,0.1)', color: m.role === 'admin' ? '#fbbf24' : m.role === 'trainer' ? '#5eead4' : '#a5b4fc', border: '1px solid transparent' }} />
               </div>
             </div>
           ))}

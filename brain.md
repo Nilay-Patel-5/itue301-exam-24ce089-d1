@@ -294,6 +294,7 @@ npm run seed           # Clears & repopulates MongoDB with demo data
 | 2026-08-24 | `chore(seed)` | Seeded 6 members (2 Platinum, 2 Premium, 2 Basic), 4 trainers, 1 Admin, and 14 class bookings |
 | 2026-08-24 | `style(ui)` | Added Membership Tier Badges in member headers (Classes & My Bookings) and Admin panel |
 | 2026-08-24 | `refactor(schema)` | Set `membershipType` to default `null` — applies strictly to `member` role (omitted for Trainers & Admin) |
+| 2026-08-24 | `fix(admin)` | Filtered `getAllMembers` API and AdminPanel UI to display only gym members (excluding Admin & Trainer accounts) |
 
 ---
 

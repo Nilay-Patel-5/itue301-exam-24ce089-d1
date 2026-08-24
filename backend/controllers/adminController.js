@@ -7,7 +7,7 @@ const ClassBooking = require('../models/ClassBooking');
 // @access  Admin only
 const getAllMembers = async (req, res, next) => {
   try {
-    const members = await Member.find().select('-password').sort({ createdAt: -1 });
+    const members = await Member.find({ role: 'member' }).select('-password').sort({ createdAt: -1 });
     res.status(200).json({
       success: true,
       count: members.length,
