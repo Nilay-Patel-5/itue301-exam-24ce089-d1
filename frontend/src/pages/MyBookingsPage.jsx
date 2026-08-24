@@ -1,13 +1,19 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { BookmarkCheck, Calendar, Clock, User, Award, CheckCircle2, XCircle, RefreshCw } from 'lucide-react';
+import { BookmarkCheck, Calendar, Clock, User, Award, CheckCircle2, XCircle, RefreshCw, Crown, Star } from 'lucide-react';
+
+const membershipBadges = {
+  platinum: { label: 'Platinum Tier Member', bg: 'rgba(168, 85, 247, 0.15)', color: '#c084fc', border: '1px solid rgba(192, 132, 252, 0.3)', icon: <Crown size={15} /> },
+  premium:  { label: 'Premium Tier Member',  bg: 'rgba(251, 191, 36, 0.15)',  color: '#fbbf24', border: '1px solid rgba(251, 191, 36, 0.3)',  icon: <Star size={15} /> },
+  basic:    { label: 'Basic Tier Member',    bg: 'rgba(148, 163, 184, 0.15)', color: '#94a3b8', border: '1px solid rgba(148, 163, 184, 0.3)', icon: <Award size={15} /> },
+};
 
 const MyBookingsPage = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const { token } = useContext(AuthContext);
+  const { token, member } = useContext(AuthContext);
 
   const fetchMyBookings = async () => {
     setLoading(true);
@@ -63,6 +69,19 @@ const MyBookingsPage = () => {
   return (
     <div>
       <div style={{ marginBottom: '2.5rem' }}>
+        {member?.membershipType && membershipBadges[member.membershipType] && (
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+            padding: '0.35rem 0.85rem', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 700,
+            marginBottom: '0.75rem',
+            background: membershipBadges[member.membershipType].bg,
+            color: membershipBadges[member.membershipType].color,
+            border: membershipBadges[member.membershipType].border
+          }}>
+            {membershipBadges[member.membershipType].icon}
+            {membershipBadges[member.membershipType].label}
+          </div>
+        )}
         <h1 className="page-title">My Class Bookings</h1>
         <p className="page-subtitle">
           Manage your reserved trainer-led sessions and status updates.

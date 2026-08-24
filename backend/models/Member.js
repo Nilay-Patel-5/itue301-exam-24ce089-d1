@@ -36,7 +36,7 @@ const memberSchema = new mongoose.Schema(
         values: ['basic', 'premium', 'platinum'],
         message: '{VALUE} is not a valid membership type'
       },
-      default: 'basic'
+      default: null
     },
     // Only populated for users with role='trainer' — links login account to Trainer profile
     trainerProfileId: {

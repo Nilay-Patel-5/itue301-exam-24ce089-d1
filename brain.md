@@ -290,6 +290,10 @@ npm run seed           # Clears & repopulates MongoDB with demo data
 | 2026-08-24 | `fix(LoginPage)` | Removed Quick Demo Auto-Fill Credentials buttons and `handleQuickLogin` function |
 | 2026-08-24 | `fix(server)` | Explicitly configured CORS to allow `localhost:3000` — fixes login from frontend |
 | 2026-08-24 | `fix(vite)` | Added `secure:false` and `rewrite` to Vite proxy config to ensure `/api` routes forward correctly |
+| 2026-08-24 | `feat(roles)` | Full 3-role architecture (Member, Trainer, Admin) with dedicated dashboards, guards, and APIs |
+| 2026-08-24 | `chore(seed)` | Seeded 6 members (2 Platinum, 2 Premium, 2 Basic), 4 trainers, 1 Admin, and 14 class bookings |
+| 2026-08-24 | `style(ui)` | Added Membership Tier Badges in member headers (Classes & My Bookings) and Admin panel |
+| 2026-08-24 | `refactor(schema)` | Set `membershipType` to default `null` — applies strictly to `member` role (omitted for Trainers & Admin) |
 
 ---
 

@@ -206,8 +206,10 @@ const AdminPanel = () => {
                 </div>
               </div>
               <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                <Badge label={m.membershipType} style={membershipColors[m.membershipType] || membershipColors.basic} />
-                <Badge label={m.role} style={{ background: m.role === 'admin' ? 'rgba(251,191,36,0.15)' : 'rgba(99,102,241,0.1)', color: m.role === 'admin' ? '#fbbf24' : '#a5b4fc', border: '1px solid transparent' }} />
+                {m.membershipType && (
+                  <Badge label={m.membershipType} style={membershipColors[m.membershipType] || membershipColors.basic} />
+                )}
+                <Badge label={m.role} style={{ background: m.role === 'admin' ? 'rgba(251,191,36,0.15)' : m.role === 'trainer' ? 'rgba(20,184,166,0.15)' : 'rgba(99,102,241,0.1)', color: m.role === 'admin' ? '#fbbf24' : m.role === 'trainer' ? '#5eead4' : '#a5b4fc', border: '1px solid transparent' }} />
               </div>
             </div>
           ))}
@@ -225,8 +227,14 @@ const AdminPanel = () => {
                     <h3 style={{ fontWeight: 700, fontSize: '1.1rem' }}>{b.className}</h3>
                     <Badge label={b.status} style={statusColors[b.status]} />
                   </div>
-                  <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-                    <span><UserCheck size={14} style={{ display: 'inline', marginRight: '4px', color: 'var(--primary)' }} />{b.memberId?.name}</span>
+                  <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+                    <span>
+                      <UserCheck size={14} style={{ display: 'inline', marginRight: '4px', color: 'var(--primary)' }} />
+                      {b.memberId?.name}
+                      {b.memberId?.membershipType && (
+                        <Badge label={b.memberId.membershipType} style={{ marginLeft: '6px', ...(membershipColors[b.memberId.membershipType] || membershipColors.basic) }} />
+                      )}
+                    </span>
                     <span><Award size={14} style={{ display: 'inline', marginRight: '4px', color: 'var(--secondary)' }} />{b.trainerId?.name}</span>
                     <span>📅 {b.date} @ {b.timeSlot}</span>
                   </div>
